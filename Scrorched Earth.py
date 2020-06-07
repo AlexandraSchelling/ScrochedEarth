@@ -96,7 +96,7 @@ def draw_missle_traj(player_number):
         players = [len(playersinfo)]
         hit_player_number = -1
         for j in range(nplayers):
-                if int(playersinfo[j].get("Position"+str(i))) <= x <= (int(playersinfo[j].get("Position"+str(i)) + 25)):
+                if int(playersinfo[j].get("Position"+str(j))) <= x <= (int(playersinfo[j].get("Position"+str(j)) + 25)):
                         hit_player_number = j
                                                           
  
@@ -115,7 +115,7 @@ nplayers = int(input("Start game with how many players?"))
 colorsneat = list(dict.values(pg.color.THECOLORS))
 
 for i in range(nplayers):   
-       player = {"Name"+str(i) : input("Enter name for player"+str(i)+":"), "Color"+str(i):  random.choice(colorsneat), "Position"+str(i): random.randrange(0, 1511, 27), "Power"+str(i): 100, "Angle"+str(i): 30}
+       player = {"Name"+str(i) : raw_input("Enter name for player"+str(i)+":"), "Color"+str(i):  random.choice(colorsneat), "Position"+str(i): random.randrange(0, 1511, 27), "Power"+str(i): 100, "Angle"+str(i): 30}
        playersinfo.append(player)
 print(playersinfo)
 
@@ -145,7 +145,7 @@ while running:
         for i in range(players):
                 draw_tank(i)
                 draw_text(i)
-                draw_missle_traj(playernr)
+                draw_missle_traj(i)
                 
 
         keys = pg.key.get_pressed()
